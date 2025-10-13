@@ -1,7 +1,10 @@
 import mis_funciones
+import csv
 #import pandas as pd
 
-
+with open('paises_mundo.csv', 'w', newline="") as archivo:
+    escritor = csv.writer(archivo)
+    
 menu = ("------ Menu ------\n\n"
     "1. Buscar pais por nombre\n"
     "2. Filtro de paises\n"
@@ -25,5 +28,5 @@ while opcion != 5:
         case 3:
             pass
         case 4:
-            pass
+            break
 
