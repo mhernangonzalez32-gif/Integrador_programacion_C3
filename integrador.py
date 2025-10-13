@@ -1,5 +1,5 @@
 import mis_funciones
-import pandas as pd
+#import pandas as pd
 
 
 menu = ("------ Menu ------\n\n"
@@ -16,7 +16,8 @@ opcion = 0
 while opcion != 5:
     print(menu)
     opcion = input("Ingrese una opción: ")
-    match opcion:
+    opcion_int = mis_funciones.verificar_num(opcion)
+    match opcion_int:
         case 1:
             pass
         case 2:
