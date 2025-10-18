@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import csv
 
 def numero_opcion(rango):
@@ -27,3 +28,9 @@ def cargar_datos_desde_csv(ruta_archivo):
     except FileNotFoundError:
         print(f"Error: El archivo no se encontró en la ruta '{ruta_archivo}'")
     return lista_paises
+=======
+def verificar_num(num):
+    if num.isdigit():
+        numero = int(num)
+        return numero
+>>>>>>> 4035f803ac34cfe54ca27a213ba370a5989e116e
