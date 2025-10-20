@@ -1,8 +1,7 @@
 import mis_funciones
 import filtro_de_busqueda
 import busqueda_por_nombre
-
-
+import Ordenar_países 
 
 
 menu = ("------ Menu ------\n\n"
@@ -23,9 +22,10 @@ while True:
             print(busqueda_por_nombre.buscar_pais_nombre(paises, nombre_pais))
         case 2:
             filtro_de_busqueda.menu_de_filtros(paises)
-        case 3:
-            pass
+        case 3: 
+            Ordenar_países.orden_paises(paises, criterio="")
         case 4:
             pass
         case 5:
             print("Adios")
+            break

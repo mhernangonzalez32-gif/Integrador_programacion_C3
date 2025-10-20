@@ -2,7 +2,7 @@ import csv
 
 def numero_opcion(rango):
     while True:
-        entrada_usuario = input("Elija una opción:")        
+        entrada_usuario = input("Elija una opción: ")        
         try:
             if int(entrada_usuario) in range(1, rango +1):
                 numero = int(entrada_usuario)
