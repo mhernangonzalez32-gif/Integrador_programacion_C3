@@ -1,17 +1,23 @@
-<<<<<<< HEAD
 import csv
 
 def numero_opcion(rango):
     while True:
         entrada_usuario = input("Elija una opción:")        
         try:
-            if int(entrada_usuario) in range(rango):
+            if int(entrada_usuario) in range(1, rango +1):
                 numero = int(entrada_usuario)
             return numero
         except ValueError:
             print("Error: El dato ingresado no pertenece a ninguna opción. Inténtalo de nuevo.")
 
-
+def numero_entero(texto):
+    while True:     
+        num = input(texto)
+        try:
+            numero = int(num)
+            return numero
+        except ValueError:
+            print("Error: El dato ingresado no es un numero. Inténtalo de nuevo.")
 
 def cargar_datos_desde_csv(ruta_archivo):
     lista_paises = []
@@ -28,9 +34,7 @@ def cargar_datos_desde_csv(ruta_archivo):
     except FileNotFoundError:
         print(f"Error: El archivo no se encontró en la ruta '{ruta_archivo}'")
     return lista_paises
-=======
 def verificar_num(num):
     if num.isdigit():
         numero = int(num)
         return numero
->>>>>>> 4035f803ac34cfe54ca27a213ba370a5989e116e
