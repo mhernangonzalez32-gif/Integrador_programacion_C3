@@ -1,29 +1,103 @@
 import mis_funciones
 
-
+# Menú visual para elegir el criterio de ordenamiento
 menu_orden = (
-    "Ordenar países por:"
-    " A. Nombre "
-    " B. Población "
-    " C. Superficie "
-    )
+    "Ordenar países por:\n"
+    "A. Nombre\n"
+    "B. Población\n"
+    "C. Superficie\n"
+)
 
 
-def orden_paises(lista_paises, criterio, desendente = False):
-
-    print(menu_orden)
-    criterio = input('Ingrese la opcion de como desea ordenar?').strip().lower()
-    claves = {'a':'nombre', 'b':'poblacion', 'c':'Superficie'}
-    if criterio not in claves:
-        print('Criterio de ordenamiento invalido')
-        return lista_paises
-    clave = claves[criterio]
-    for pais in sorted(lista_paises, key=lambda x: x[clave], reverse=desendente):    
-        print(f"🌍 {pais['nombre']}")
-        print(f"   Población : {pais['poblacion']:,}, {pais['superficie']:,} km², {pais['continente']}")
-        print("-" * 40)
-
-    #return sorted(lista_paises, key=lambda x: x[clave], reverse=desendente)
+def orden_paises(lista_paises):
+    """
+    Permite al usuario ordenar la lista de países por nombre, población o superficie,
+    en orden ascendente o descendente, y muestra los resultados formateados.
     
-
+    Parámetros:
+        lista_paises (list): Lista de diccionarios, cada uno con claves:
+            'nombre', 'poblacion', 'superficie', 'continente'.
     
+    No retorna nada, pero imprime los países ordenados en consola.
+    Si ocurre un error o no hay datos, muestra un mensaje informativo.
+    """
+    try:
+        # Validación inicial de la entrada
+        if not isinstance(lista_paises, list):
+            print("Error: se esperaba una lista de países.")
+            return
+
+        if not lista_paises:
+            print("No hay países para ordenar.")
+            return
+
+        print(menu_orden)
+        criterio = input("Ingrese la opción de cómo desea ordenar (A, B o C): ").strip().lower()
+
+        # Mapeo de opciones a claves del diccionario (¡corregido: 'superficie' en minúscula!)
+        claves = {
+            'a': 'nombre',
+            'b': 'poblacion',
+            'c': 'superficie'
+        }
+
+        if criterio not in claves:
+            print("❌ Criterio de ordenamiento inválido. Use A, B o C.")
+            return
+
+        clave = claves[criterio]
+
+        # Preguntar si desea orden descendente (True/False)
+        descendente = mis_funciones.si_o_no(True, "¿Querés mostrarlo en orden descendente? (s/n): ")
+
+        # Validar que todos los países tengan la clave necesaria y sean comparables
+        # Convertimos a entero si es población o superficie (por si vienen como str del CSV)
+        def obtener_valor(pais):
+            if clave not in pais:
+                return "" if clave == "nombre" else 0  # valor por defecto
+            valor = pais[clave]
+            if clave in ("poblacion", "superficie"):
+                try:
+                    return int(valor)
+                except (ValueError, TypeError):
+                    return 0
+            return str(valor).lower()  # para nombre, orden alfabético
+
+        # Ordenar usando la función auxiliar segura
+        try:
+            paises_ordenados = sorted(lista_paises, key=obtener_valor, reverse=descendente)
+        except Exception as e:
+            print(f"Error al ordenar los países: {e}")
+            return
+
+        # Mostrar resultados formateados
+        if not paises_ordenados:
+            print("No se pudieron mostrar países (lista vacía tras ordenar).")
+            return
+
+        print("\n" + "="*50)
+        print(f"🌎 Países ordenados por {clave} ({'descendente' if descendente else 'ascendente'})")
+        print("="*50)
+
+        for pais in paises_ordenados:
+            nombre = pais.get('nombre', 'Desconocido')
+            poblacion = pais.get('poblacion', 'N/A')
+            superficie = pais.get('superficie', 'N/A')
+            continente = pais.get('continente', 'N/A')
+
+            # Formatear números con separador de miles si son válidos
+            try:
+                poblacion_str = f"{int(poblacion):,}" if poblacion != 'N/A' else 'N/A'
+                superficie_str = f"{int(superficie):,}" if superficie != 'N/A' else 'N/A'
+            except (ValueError, TypeError):
+                poblacion_str = str(poblacion)
+                superficie_str = str(superficie)
+
+            print(f"🌍 {nombre}")
+            print(f"   Población: {poblacion_str}, Superficie: {superficie_str} km², Continente: {continente}")
+            print("-" * 50)
+
+    except KeyboardInterrupt:
+        print("\n\nOperación cancelada por el usuario.")
+    except Exception as e:
+        print(f"❌ Error inesperado en el ordenamiento: {e}")
