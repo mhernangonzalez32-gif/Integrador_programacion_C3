@@ -1,4 +1,4 @@
-import mis_funciones
+import funciones.mis_funciones as mis_funciones
 
 # Menú visual para elegir el criterio de ordenamiento
 menu_orden = (

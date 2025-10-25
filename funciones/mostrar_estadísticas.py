@@ -8,7 +8,7 @@ def mostrar_estadisticas(lista_paises):
 
     Parámetros:
         lista_paises (list): Lista de diccionarios con claves:
-                             'nombre', 'poblacion', 'superficie', 'continente'.
+        'nombre', 'poblacion', 'superficie', 'continente'.
 
     No retorna nada. Imprime los resultados en consola.
     """
