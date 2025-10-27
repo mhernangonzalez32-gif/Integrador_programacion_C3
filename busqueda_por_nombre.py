@@ -11,7 +11,7 @@ def buscar_pais_nombre(lista_paises, nombre_pais):
     
     Retorna:
         list: Lista de países que coinciden o son similares al nombre dado.
-              Si no hay coincidencias, devuelve una lista vacía.
+                Si no hay coincidencias, devuelve una lista vacía.
     
     Lanza:
         TypeError: Si 'lista_paises' no es una lista o 'nombre_pais' no es una cadena.

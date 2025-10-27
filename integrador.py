@@ -2,7 +2,7 @@ import mis_funciones
 import filtro_de_busqueda
 import busqueda_por_nombre
 import ordenar_países
-import mostrar_estadísticas
+#import mostrar_estadísticas
 
 
 menu = ("------ Menu ------\n\n"
