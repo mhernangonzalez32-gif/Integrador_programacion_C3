@@ -79,24 +79,7 @@ def orden_paises(lista_paises):
         print(f"🌎 Países ordenados por {clave} ({'descendente' if descendente else 'ascendente'})")
         print("="*50)
 
-        for pais in paises_ordenados:
-            nombre = pais.get('nombre', 'Desconocido')
-            poblacion = pais.get('poblacion', 'N/A')
-            superficie = pais.get('superficie', 'N/A')
-            continente = pais.get('continente', 'N/A')
-
-            # Formatear números con separador de miles si son válidos
-            try:
-                poblacion_str = f"{int(poblacion):,}" if poblacion != 'N/A' else 'N/A'
-                superficie_str = f"{int(superficie):,}" if superficie != 'N/A' else 'N/A'
-            except (ValueError, TypeError):
-                poblacion_str = str(poblacion)
-                superficie_str = str(superficie)
-
-            print(f"🌍 {nombre}")
-            print(f"   Población: {poblacion_str}, Superficie: {superficie_str} km², Continente: {continente}")
-            print("-" * 50)
-
+        mis_funciones.imprimir_resutados(paises_ordenados)
     except KeyboardInterrupt:
         print("\n\nOperación cancelada por el usuario.")
     except Exception as e:
