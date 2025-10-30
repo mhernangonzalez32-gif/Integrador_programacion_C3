@@ -16,7 +16,7 @@ def orden_paises(lista_paises):
     
     Parámetros:
         lista_paises (list): Lista de diccionarios, cada uno con claves:
-            'nombre', 'poblacion', 'superficie', 'continente'.
+        'nombre', 'poblacion', 'superficie', 'continente'.
     
     No retorna nada, pero imprime los países ordenados en consola.
     Si ocurre un error o no hay datos, muestra un mensaje informativo.
@@ -75,13 +75,13 @@ def orden_paises(lista_paises):
             print("No se pudieron mostrar países (lista vacía tras ordenar).")
             return
 
-        print("\n" + "="*50)
+        print("\n" + "="*mis_funciones.ANCHO_TOTAL)
         print(f"🌎 Países ordenados por {clave} ({'descendente' if descendente else 'ascendente'})")
-        print("="*50)
+        print("="*mis_funciones.ANCHO_TOTAL)
 
         mis_funciones.imprimir_resutados(paises_ordenados)
 
     except KeyboardInterrupt:
         print("\n\nOperación cancelada por el usuario.")
     except Exception as e:
-        print(f"❌ Error inesperado en el ordenamiento: {e}")
+        print(f"❌ Error inesperado en el ordenamiento: {e}")
