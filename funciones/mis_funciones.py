@@ -143,7 +143,7 @@ def normalizar_manual(texto):
         texto = texto.replace(original, reemplazo)
     return texto
 
-'''def imprimir_resutados(lista):
+def imprimir_resutados(lista):
     ANCHO_NUM = 7
     ANCHO_NOMBRE = 30
     ANCHO_POB = 15
@@ -157,50 +157,4 @@ def normalizar_manual(texto):
         poblacion = pais.get('poblacion', 'N/A')
         superficie = pais.get('superficie', 'N/A')
         continente = pais.get('continente', 'N/A')
-        print(f"{con:>{ANCHO_NUM}} | {nombre:<{ANCHO_NOMBRE}} | {poblacion:>{ANCHO_POB}} | {superficie:>{ANCHO_SUP}} | {continente:<{ANCHO_CONT}}")'''
-
-
-def imprimir_resutados(paises_ordenados):
-    pagina = 0
-    por_pagina = 10
-    total = len(paises_ordenados)
-    total_paginas = (total + por_pagina - 1) // por_pagina
-    ANCHO_NUM = 7
-    ANCHO_NOMBRE = 30
-    ANCHO_POB = 15
-    ANCHO_SUP = 18
-    ANCHO_CONT = 20
-
-    while True:
-        inicio = pagina * por_pagina
-        fin = inicio + por_pagina
-        
-        print(f"\nPágina {pagina+1} de {total_paginas}")
-        print(f"\n{'#':>{ANCHO_NUM}} | {'Nombre':<{ANCHO_NOMBRE}} | {'Población':>{ANCHO_POB}} | {'Superficie (km²)':>{ANCHO_SUP}} | {'Continente':<{ANCHO_CONT}}")
-        print("-" * ANCHO_TOTAL)
-        
-        for con, pais in enumerate(paises_ordenados[inicio:fin], start=inicio+1):
-            nombre = pais.get('nombre', 'Desconocido')
-            poblacion = f"{pais.get('poblacion', 0):,}"
-            superficie = f"{pais.get('superficie', 0):,}"
-            continente = pais.get('continente', 'N/A')
-            print(f"{con:>{ANCHO_NUM}} | {nombre:<{ANCHO_NOMBRE}} | {poblacion:>{ANCHO_POB}} | {superficie:>{ANCHO_SUP}} | {continente:<{ANCHO_CONT}}")
-
-
-        print("Opciones: [A]vanzar | [R]etroceder | [S]alir")
-        accion = input("Seleccione una opción: ").strip().lower()
-        if accion == 's':
-            print("👋 Saliendo de la paginación...")
-            break
-        elif accion == 'a':
-            if pagina < total_paginas - 1:
-                pagina += 1
-            else:
-                print("🚫 Ya estás en la última página.")
-        elif accion == 'r':
-            if pagina > 0:
-                pagina -= 1
-            else:
-                print("🚫 Ya estás en la primera página.")
-        else:
-            print("❌ Opción inválida. Intente nuevamente.")
+        print(f"{con:>{ANCHO_NUM}} | {nombre:<{ANCHO_NOMBRE}} | {poblacion:>{ANCHO_POB}} | {superficie:>{ANCHO_SUP}} | {continente:<{ANCHO_CONT}}")

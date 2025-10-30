@@ -20,9 +20,9 @@ while True:
         case 4:
             mostrar_estadísticas.mostrar_estadisticas(paises)
         case 5:
-            pass #AGREGAR 
+            pass
         case 6:
-            pass # EDITAR
+            pass
         case 7:
             print("Adios")
             break

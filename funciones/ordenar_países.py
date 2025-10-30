@@ -1,4 +1,4 @@
-import mis_funciones
+import funciones.mis_funciones as mis_funciones
 
 # Menú visual para elegir el criterio de ordenamiento
 menu_orden = (
@@ -80,6 +80,7 @@ def orden_paises(lista_paises):
         print("="*50)
 
         mis_funciones.imprimir_resutados(paises_ordenados)
+
     except KeyboardInterrupt:
         print("\n\nOperación cancelada por el usuario.")
     except Exception as e:
