@@ -1,8 +1,11 @@
-import funciones.mis_funciones as mis_funciones
-import funciones.filtro_de_busqueda as filtro_de_busqueda
-import funciones.busqueda_por_nombre as busqueda_por_nombre
-import funciones.ordenar_países as ordenar_países
-import funciones.mostrar_estadísticas as mostrar_estadísticas
+from funciones import (
+    mis_funciones,
+    filtro_de_busqueda,
+    busqueda_por_nombre,
+    ordenar_países,
+    mostrar_estadísticas,
+    manejo_csv
+)
 
 
 paises = mis_funciones.cargar_datos_desde_csv("csv\\paises_mundo.csv")
@@ -20,7 +23,7 @@ while True:
         case 4:
             mostrar_estadísticas.mostrar_estadisticas(paises)
         case 5:
-            pass
+            manejo_csv.agregar_pais(paises)
         case 6:
             pass
         case 7:

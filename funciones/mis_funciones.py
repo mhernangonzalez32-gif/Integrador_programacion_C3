@@ -143,18 +143,60 @@ def normalizar_manual(texto):
         texto = texto.replace(original, reemplazo)
     return texto
 
-def imprimir_resutados(lista):
+def imprimir_resutados(paises_ordenados):
+    
+    # 1. Definición de constantes (fuera del while)
     ANCHO_NUM = 7
     ANCHO_NOMBRE = 30
     ANCHO_POB = 15
     ANCHO_SUP = 18
     ANCHO_CONT = 20
-    print(f"\n{'#':>{ANCHO_NUM}} | {'Nombre':<{ANCHO_NOMBRE}} | {'Población':>{ANCHO_POB}} | {'Superficie (km²)':>{ANCHO_SUP}} | {'Continente':<{ANCHO_CONT}}")
     ANCHO_TOTAL = ANCHO_NUM + ANCHO_NOMBRE + ANCHO_POB + ANCHO_SUP + ANCHO_CONT + (4 * 3)
-    print("-" * ANCHO_TOTAL)
-    for con, pais in enumerate(lista, start=1):
-        nombre = pais.get('nombre', 'Desconocido')
-        poblacion = pais.get('poblacion', 'N/A')
-        superficie = pais.get('superficie', 'N/A')
-        continente = pais.get('continente', 'N/A')
-        print(f"{con:>{ANCHO_NUM}} | {nombre:<{ANCHO_NOMBRE}} | {poblacion:>{ANCHO_POB}} | {superficie:>{ANCHO_SUP}} | {continente:<{ANCHO_CONT}}")
+
+    # 2. Inicialización de variables de paginación (fuera del while)
+    pagina = 0
+    por_pagina = 10
+    total = len(paises_ordenados)
+    total_paginas = (total + por_pagina - 1) // por_pagina
+
+    # 3. Bucle de navegación (dentro del while)
+    while True:
+        # Cálculo de índices de página actual
+        inicio = pagina * por_pagina
+        fin = inicio + por_pagina
+
+        # Encabezado
+        print(f"\nPágina {pagina+1} de {total_paginas}")
+        print(f"\n{'#':>{ANCHO_NUM}} | {'Nombre':<{ANCHO_NOMBRE}} | {'Población':>{ANCHO_POB}} | {'Superficie (km²)':>{ANCHO_SUP}} | 🌎 {'Continente':<{ANCHO_CONT}}")
+        print("-" * ANCHO_TOTAL)
+
+        # Filas de países
+        for con, pais in enumerate(paises_ordenados[inicio:fin], start=inicio+1):
+            nombre = pais.get('nombre', 'Desconocido')
+            poblacion = f"{pais.get('poblacion', 'N/A'):,}"
+            superficie = f"{pais.get('superficie', 'N/A'):,}"
+            continente = pais.get('continente', 'N/A')
+            print(f"{con:>{ANCHO_NUM}} | {nombre:<{ANCHO_NOMBRE}} | {poblacion:>{ANCHO_POB}} | {superficie:>{ANCHO_SUP}} | {continente:<{ANCHO_CONT}}")
+
+        print("-" * ANCHO_TOTAL)
+
+        # Opciones de navegación
+        print("Opciones: [A]vanzar | [R]etroceder | [S]alir")
+        accion = input("Seleccione una opción: ").strip().lower()
+
+        # Lógica de navegación
+        if accion == 's':
+            print("👋 Saliendo de la paginación...")
+            break
+        elif accion == 'a':
+            if pagina < total_paginas - 1:
+                pagina += 1
+            else:
+                print("🚫 Ya estás en la última página.")
+        elif accion == 'r':
+            if pagina > 0:
+                pagina -= 1
+            else:
+                print("🚫 Ya estás en la primera página.")
+        else:
+            print("❌ Opción inválida. Intente nuevamente.")
