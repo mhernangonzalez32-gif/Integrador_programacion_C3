@@ -25,7 +25,7 @@ while True:
         case 5:
             manejo_csv.agregar_pais(paises)
         case 6:
-            pass
+            manejo_csv.editar_pais(paises, manejo_csv.encabezados, "csv\\paises_mundo.csv")
         case 7:
             print("Adios")
             break

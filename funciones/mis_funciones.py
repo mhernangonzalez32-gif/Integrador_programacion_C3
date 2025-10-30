@@ -147,10 +147,10 @@ def imprimir_resutados(paises_ordenados):
     
     # 1. Definición de constantes (fuera del while)
     ANCHO_NUM = 7
-    ANCHO_NOMBRE = 30
+    ANCHO_NOMBRE = 35
     ANCHO_POB = 15
     ANCHO_SUP = 18
-    ANCHO_CONT = 20
+    ANCHO_CONT = 25
     ANCHO_TOTAL = ANCHO_NUM + ANCHO_NOMBRE + ANCHO_POB + ANCHO_SUP + ANCHO_CONT + (4 * 3)
 
     # 2. Inicialización de variables de paginación (fuera del while)

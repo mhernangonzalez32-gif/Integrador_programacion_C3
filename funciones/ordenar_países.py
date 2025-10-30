@@ -76,7 +76,7 @@ def orden_paises(lista_paises):
             return
 
         print("\n" + "="*mis_funciones.ANCHO_TOTAL)
-        print(f"🌎 Países ordenados por {clave} ({'descendente' if descendente else 'ascendente'})")
+        print(mis_funciones.menu_centro(f"🌎 Países ordenados por {clave} ({'descendente' if descendente else 'ascendente'})"))
         print("="*mis_funciones.ANCHO_TOTAL)
 
         mis_funciones.imprimir_resutados(paises_ordenados)
