@@ -79,7 +79,7 @@ def orden_paises(lista_paises):
         print(mis_funciones.menu_centro(f"🌎 Países ordenados por {clave} ({'descendente' if descendente else 'ascendente'})"))
         print("="*mis_funciones.ANCHO_TOTAL)
 
-        mis_funciones.imprimir_resutados(paises_ordenados)
+        mis_funciones.imprimir_resultados(paises_ordenados)
 
     except KeyboardInterrupt:
         print("\n\nOperación cancelada por el usuario.")

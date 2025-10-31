@@ -8,15 +8,15 @@ encabezados = (
     "continente"
 )
 
-def agregar_pais(lista_paises):
+def agregar_pais(lista_paises, nombre_archivo_csv):
     
-    nombre_nuevo = input("¿Cómo se llama el nuevo país? \n")
+    nombre_nuevo = input("¿Cómo se llama el nuevo país? \n").strip().lower()
     
     # 1. Verificamos si ya existe
     duplicado_encontrado = False
     for pais in lista_paises:
         nombre_pais = pais['nombre']
-        if nombre_pais.lower() == nombre_nuevo:
+        if nombre_pais.strip().lower() == nombre_nuevo:
             duplicado_encontrado = True
             break # Rompemos el bucle
             
@@ -26,9 +26,9 @@ def agregar_pais(lista_paises):
 
     # 2. Pedimos los OTROS datos
     try:
-        poblacion_nueva = int(input(f"Población de {nombre_nuevo}? \n"))
-        superficie_nueva = int(input(f"Superficie de {nombre_nuevo}? \n"))
-        mis_funciones.menu_con()
+        poblacion_nueva = mis_funciones.numero_entero((input(f"Población de {nombre_nuevo}? \n")))
+        superficie_nueva = mis_funciones.numero_entero((input(f"Superficie de {nombre_nuevo}? \n")))
+        mis_funciones.menu_continentes()
         opcion = mis_funciones.numero_opcion(6)
         continentes = {
             1: "américa del sur",
@@ -54,7 +54,13 @@ def agregar_pais(lista_paises):
     # 4. Lo añadimos a la lista
     lista_paises.append(nuevo_pais)
     print(f"¡País '{nombre_nuevo}' agregado con éxito!")
-
+    
+    print("Guardando cambios en el archivo...")
+    try:
+        guardar_datos(nombre_archivo_csv, lista_paises, encabezados)
+        print("Archivo actualizado con éxito!")
+    except Exception as e:
+        print(f"Error al guardar el archivo: {e}")
 
 def editar_pais(lista_paises, encabezados, nombre_archivo_csv):
 
@@ -92,13 +98,13 @@ def editar_pais(lista_paises, encabezados, nombre_archivo_csv):
 
     match opcion:
         case 1:
-            nuevo_valor = input(f"Nueva población (actual: {pais_para_editar['poblacion']}): ")
-            pais_para_editar['poblacion'] = int(nuevo_valor)
+            nuevo_valor = mis_funciones.numero_entero((f"Nueva población (actual: {pais_para_editar['poblacion']}): "))
+            pais_para_editar['poblacion'] = nuevo_valor
             hubo_cambios = True
 
         case 2:
-            nuevo_valor = input(f"Nueva superficie (actual: {pais_para_editar['superficie']}): ")
-            pais_para_editar['superficie'] = int(nuevo_valor)
+            nuevo_valor = mis_funciones.numero_entero((f"Nueva superficie (actual: {pais_para_editar['superficie']}): "))
+            pais_para_editar['superficie'] = nuevo_valor
             hubo_cambios = True
 
         case 3:
@@ -116,9 +122,9 @@ def editar_pais(lista_paises, encabezados, nombre_archivo_csv):
         print("Guardando cambios en el archivo...")
         try:
             guardar_datos(nombre_archivo_csv, lista_paises, encabezados)
-            print("✅ ¡Archivo actualizado con éxito!")
+            print("Archivo actualizado con éxito!")
         except Exception as e:
-            print(f"❌ Error al guardar el archivo: {e}")
+            print(f"Error al guardar el archivo: {e}")
 
 def guardar_datos(nombre_archivo, datos, encabezados ):
     try:

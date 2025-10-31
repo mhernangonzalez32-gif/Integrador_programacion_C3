@@ -5,7 +5,7 @@ def buscar_por_continente(lista_paises):
         if not isinstance(lista_paises, list):
             print("Error: se esperaba una lista de países.")
             return []
-        mis_funciones.menu_con()
+        mis_funciones.menu_continentes()
         opcion = mis_funciones.numero_opcion(6)
         # Mapeo de opción a continente (normalizado en minúsculas)
         continentes = {
@@ -26,7 +26,7 @@ def buscar_por_continente(lista_paises):
                 continue  # Saltea entradas mal formadas
             if continente_buscado in pais["continente"].lower():
                 resultados.append(pais)
-        mis_funciones.imprimir_resutados(resultados)
+        mis_funciones.imprimir_resultados(resultados)
 
         if not resultados:
             print("No se encontraron países para ese continente.")
@@ -64,7 +64,7 @@ def buscar_por_rango_poblacion(lista_paises):
             except (ValueError, TypeError):
                 # Saltea países con datos de población inválidos
                 continue
-        mis_funciones.imprimir_resutados(resultados)
+        mis_funciones.imprimir_resultados(resultados)
 
         if not resultados:
             print("No se encontraron países en ese rango de población.")
@@ -102,7 +102,7 @@ def buscar_por_rango_superficie(lista_paises):
             except (ValueError, TypeError):
                 # Saltea países con datos de superficie inválidos
                 continue
-        mis_funciones.imprimir_resutados(resultados)
+        mis_funciones.imprimir_resultados(resultados)
 
         if not resultados:
             print("No se encontraron países en ese rango de superficie.")

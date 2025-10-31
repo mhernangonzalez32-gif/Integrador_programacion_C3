@@ -33,4 +33,4 @@ def buscar_pais_nombre(lista_paises):
     
     print(mis_funciones.menu_centro(f"--- Resultados para '{nombre_buscado}' ({len(resultados)} encontrados) ---"))
     
-    return mis_funciones.imprimir_resutados(resultados)
+    return mis_funciones.imprimir_resultados(resultados)
