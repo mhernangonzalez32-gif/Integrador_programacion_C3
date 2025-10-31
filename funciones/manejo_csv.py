@@ -93,12 +93,12 @@ def editar_pais(lista_paises, encabezados, nombre_archivo_csv):
     match opcion:
         case 1:
             nuevo_valor = input(f"Nueva población (actual: {pais_para_editar['poblacion']}): ")
-            pais_para_editar['poblacion'] = nuevo_valor
+            pais_para_editar['poblacion'] = int(nuevo_valor)
             hubo_cambios = True
 
         case 2:
             nuevo_valor = input(f"Nueva superficie (actual: {pais_para_editar['superficie']}): ")
-            pais_para_editar['superficie'] = nuevo_valor
+            pais_para_editar['superficie'] = int(nuevo_valor)
             hubo_cambios = True
 
         case 3:
@@ -120,13 +120,12 @@ def editar_pais(lista_paises, encabezados, nombre_archivo_csv):
         except Exception as e:
             print(f"❌ Error al guardar el archivo: {e}")
 
-def guardar_datos(nombre_archivo, datos, encabezados):
+def guardar_datos(nombre_archivo, datos, encabezados ):
     try:
         with open(nombre_archivo, mode='w', newline='', encoding='utf-8') as f:
             escritor = csv.DictWriter(f, fieldnames=encabezados)
             escritor.writeheader()
             escritor.writerows(datos)
-            
         return True
 
     except IOError as e:
