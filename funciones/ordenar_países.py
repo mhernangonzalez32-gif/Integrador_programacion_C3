@@ -2,10 +2,9 @@ import funciones.mis_funciones as mis_funciones
 
 # Menú visual para elegir el criterio de ordenamiento
 menu_orden = (
-    "Ordenar países por:\n"
-    "A. Nombre\n"
-    "B. Población\n"
-    "C. Superficie\n"
+    "Nombre",
+    "Población",
+    "Superficie"
 )
 
 
@@ -30,19 +29,26 @@ def orden_paises(lista_paises):
         if not lista_paises:
             print("No hay países para ordenar.")
             return
+        
+        print("=" * mis_funciones.ANCHO_TOTAL)
+        print(mis_funciones.menu_centro("Ordenar países por:"))
+        print("-" * mis_funciones.ANCHO_TOTAL)
+        for i, opcion_texto in enumerate(menu_orden, start=1):
+            linea = f"  {i}. {opcion_texto}"
+            print(f"{linea:<{mis_funciones.ANCHO_TOTAL - 6}}  ") 
+        print("=" * mis_funciones.ANCHO_TOTAL)
 
-        print(menu_orden)
-        criterio = input("Ingrese la opción de cómo desea ordenar (A, B o C): ").strip().lower()
+        criterio = mis_funciones.numero_entero("Ingrese la opción de cómo desea ordenar: ")
 
         # Mapeo de opciones a claves del diccionario (¡corregido: 'superficie' en minúscula!)
         claves = {
-            'a': 'nombre',
-            'b': 'poblacion',
-            'c': 'superficie'
+            1 : 'nombre',
+            2 : 'poblacion',
+            3 : 'superficie'
         }
-
+        
         if criterio not in claves:
-            print("❌ Criterio de ordenamiento inválido. Use A, B o C.")
+            print("❌ Criterio de ordenamiento inválido.")
             return
 
         clave = claves[criterio]

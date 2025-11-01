@@ -12,7 +12,7 @@ def menu_principal():
         "Ordenar lista de países",
         "Mostrar estadísticas",
         "Agregar un nuevo pais",
-        "Editar un pais de la lista"
+        "Editar un pais de la lista",
         "Salir"
     ]
     # Imprime el menú línea por línea con formato
@@ -124,6 +124,7 @@ def si_o_no(validacion, texto):
                 return validacion == False
             else:
                 print("❌ Entrada no válida. Por favor responda con 'sí' o 'no' (o 's'/'n').")
+                print("-" * ANCHO_TOTAL)
         except KeyboardInterrupt:
             print("\n\nOperación cancelada por el usuario.")
             return validacion == False  
