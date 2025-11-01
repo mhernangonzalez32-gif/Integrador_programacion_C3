@@ -1,60 +1,36 @@
 import difflib
 
-def buscar_pais_nombre(lista_paises, nombre_pais):
-    """
-    Busca países cuyo nombre coincida exactamente, parcialmente o sea similar
-    al nombre proporcionado, incluso si está mal escrito.
+def buscar_pais_nombre(lista_paises):
+    # Pedimos que ingrese el nombre o alguna similitud
+    print("-" * mis_funciones.ANCHO_TOTAL)
+    nombre_buscado = input("Que pais esta buscando?\n")
+    print("-" * mis_funciones.ANCHO_TOTAL)
     
-    Parámetros:
-        lista_paises (list): Lista de diccionarios con claves 'nombre', 'poblacion', 'superficie', 'continente'.
-        nombre_pais (str): Nombre (o parte del nombre) del país a buscar.
+    # Normalizar el término de búsqueda del usuario
+    termino_normalizado = mis_funciones.normalizar_manual(nombre_buscado)
     
-    Retorna:
-        list: Lista de países que coinciden o son similares al nombre dado.
-                Si no hay coincidencias, devuelve una lista vacía.
+    if not termino_normalizado:
+        return print(mis_funciones.menu_centro(f"--- Error: No ingresó un término de búsqueda ---"))
+    resultados = []
     
-    Lanza:
-        TypeError: Si 'lista_paises' no es una lista o 'nombre_pais' no es una cadena.
-    """
-    try:
-        # Validaciones iniciales
-        if not isinstance(lista_paises, list):
-            raise TypeError("El primer argumento debe ser una lista de países.")
-        if not isinstance(nombre_pais, str):
-            raise TypeError("El nombre del país debe ser una cadena de texto.")
+    # Iterar sobre la lista de países
+    for pais in lista_paises:
+        # Obtener el nombre del país del diccionario [cite: 20]
+        nombre_pais_actual = pais.get('nombre', '') 
         
-        nombre_pais = nombre_pais.strip().lower()
-        if not nombre_pais:
-            return []  # Búsqueda vacía
-
-        # 1. Primero intentamos coincidencias parciales/exactas (más rápidas)
-        coincidencias_directas = []
-        for pais in lista_paises:
-            if not isinstance(pais, dict) or "nombre" not in pais:
-                continue  # Saltea entradas mal formadas
-            if nombre_pais in pais["nombre"].lower():
-                coincidencias_directas.append(pais)
-
-        # Si ya hay resultados directos, los devolvemos (prioridad)
-        if coincidencias_directas:
-            return coincidencias_directas
-
-        # 2. Si no hay coincidencias directas, buscamos nombres similares
-        nombres_paises = [pais["nombre"] for pais in lista_paises if isinstance(pais, dict) and "nombre" in pais]
-        nombres_similares = difflib.get_close_matches(nombre_pais, [n.lower() for n in nombres_paises], n=5, cutoff=0.6)
-
-        # Recuperamos los países completos cuyos nombres coinciden con las sugerencias
-        resultados_similares = []
-        for nombre_sim in nombres_similares:
-            for pais in lista_paises:
-                if isinstance(pais, dict) and "nombre" in pais:
-                    if pais["nombre"].lower() == nombre_sim:
-                        resultados_similares.append(pais)
-                        break  # Evita duplicados si hay nombres repetidos
-
-        return resultados_similares
-
-    except Exception as e:
-        # Manejo genérico de errores (puedes personalizar según necesidad)
-        print(f"Error en la búsqueda del país: {e}")
-        return []
+        # Normalizar el nombre del país para la comparación
+        nombre_actual_normalizado = mis_funciones.normalizar_manual(nombre_pais_actual)
+        
+        # Comprobar si el término buscado está DENTRO del nombre del país
+        # Esto cumple con la "coincidencia parcial" 
+        if termino_normalizado in nombre_actual_normalizado:
+            resultados.append(pais)
+            
+    #  Devolver los resultados 
+    if not resultados:
+        # Cumplir con "Mensajes claros de éxito/error" [cite: 69]
+        return print(mis_funciones.menu_centro(f"--- No se encontraron resultados para '{nombre_buscado}' ---"))
+    
+    print(mis_funciones.menu_centro(f"--- Resultados para '{nombre_buscado}' ({len(resultados)} encontrados) ---"))
+    
+    return mis_funciones.imprimir_resultados(resultados)

@@ -23,9 +23,10 @@ while True:
         case 4:
             mostrar_estadísticas.mostrar_estadisticas(paises)
         case 5:
-            manejo_csv.agregar_pais(paises)
+            manejo_csv.agregar_pais(paises, "csv\\paises_mundo.csv")
         case 6:
-            pass
+            manejo_csv.editar_pais(paises, manejo_csv.encabezados, "csv\\paises_mundo.csv")
         case 7:
-            print("Adios")
-            break
+            print("Adiós")
+        case _:
+            print (mis_funciones.menu_centro("🤭 Error. Intentelo nuevamente.🤭"))

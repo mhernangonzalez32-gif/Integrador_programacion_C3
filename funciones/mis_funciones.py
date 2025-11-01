@@ -11,6 +11,8 @@ def menu_principal():
         "Filtro de países",
         "Ordenar lista de países",
         "Mostrar estadísticas",
+        "Agregar un nuevo pais",
+        "Editar un pais de la lista",
         "Salir"
     ]
     # Imprime el menú línea por línea con formato
@@ -29,7 +31,7 @@ def menu_filtros():
         "Buscar por continente",
         "Buscar por rango de población",
         "Buscar por rango de superficie",
-        "Volver atras"
+        "Volver atrás"
     ]
     
     # Imprime el menú línea por línea con formato
@@ -43,7 +45,7 @@ def menu_filtros():
         print(f"{linea:<{ANCHO_TOTAL - 6}}  ") 
     print("=" * ANCHO_TOTAL)
 
-def menu_con():
+def menu_continentes():
     opciones = [
         "América del Sur",
         "América del Norte",
@@ -80,10 +82,11 @@ def numero_entero(texto):
     while True:     
         num = input(texto)
         try:
+            num = num.replace('.', '')
             numero = int(num)
             return numero
         except ValueError:
-            print("Error: El dato ingresado no es un numero. Inténtalo de nuevo.")
+            print("Error: El dato ingresado no es un número. Inténtalo de nuevo.")
 
 def cargar_datos_desde_csv(ruta_archivo):
     lista_paises = []
@@ -95,10 +98,12 @@ def cargar_datos_desde_csv(ruta_archivo):
                     fila['poblacion'] = int(fila['poblacion'])
                     fila['superficie'] = int(fila['superficie'])
                     lista_paises.append(fila)
-                except ValueError:
-                    print(f"Advertencia: Se omitió una fila por datos inválidos: {fila}")
+                except (ValueError, KeyError, TypeError):
+                    print(f"Advertencia: Se omitió una fila por datos inválidos o faltantes: {fila}")
     except FileNotFoundError:
         print(f"Error: El archivo no se encontró en la ruta '{ruta_archivo}'")
+    except Exception as e:
+        print(f"Error inesperado al leer el archivo: {e}")
     return lista_paises
 
 def verificar_num(num):
@@ -119,6 +124,7 @@ def si_o_no(validacion, texto):
                 return validacion == False
             else:
                 print("❌ Entrada no válida. Por favor responda con 'sí' o 'no' (o 's'/'n').")
+                print("-" * ANCHO_TOTAL)
         except KeyboardInterrupt:
             print("\n\nOperación cancelada por el usuario.")
             return validacion == False  
@@ -128,10 +134,6 @@ def si_o_no(validacion, texto):
             print("Por favor, inténtelo de nuevo.")
 
 def normalizar_manual(texto):
-    """
-    Reemplaza caracteres acentuados por su versión sin tilde
-    y convierte a minúsculas.
-    """
     texto = texto.lower()
     reemplazos = (
         ("á", "a"), ("é", "e"), ("í", "i"), ("ó", "o"), ("ú", "u"),
@@ -143,14 +145,14 @@ def normalizar_manual(texto):
         texto = texto.replace(original, reemplazo)
     return texto
 
-def imprimir_resutados(paises_ordenados):
+def imprimir_resultados(paises_ordenados):
     
     # 1. Definición de constantes (fuera del while)
     ANCHO_NUM = 7
-    ANCHO_NOMBRE = 30
+    ANCHO_NOMBRE = 35
     ANCHO_POB = 15
     ANCHO_SUP = 18
-    ANCHO_CONT = 20
+    ANCHO_CONT = 25
     ANCHO_TOTAL = ANCHO_NUM + ANCHO_NOMBRE + ANCHO_POB + ANCHO_SUP + ANCHO_CONT + (4 * 3)
 
     # 2. Inicialización de variables de paginación (fuera del while)
@@ -167,7 +169,7 @@ def imprimir_resutados(paises_ordenados):
 
         # Encabezado
         print(f"\nPágina {pagina+1} de {total_paginas}")
-        print(f"\n{'#':>{ANCHO_NUM}} | {'Nombre':<{ANCHO_NOMBRE}} | {'Población':>{ANCHO_POB}} | {'Superficie (km²)':>{ANCHO_SUP}} | 🌎 {'Continente':<{ANCHO_CONT}}")
+        print(f"\n{'#':>{ANCHO_NUM}} | {'Nombre':<{ANCHO_NOMBRE}} | 🚻 {'Población':>{ANCHO_POB}} | 🗺️ {'Superficie (km²)':>{ANCHO_SUP}} | 🌎 {'Continente':<{ANCHO_CONT}}")
         print("-" * ANCHO_TOTAL)
 
         # Filas de países
