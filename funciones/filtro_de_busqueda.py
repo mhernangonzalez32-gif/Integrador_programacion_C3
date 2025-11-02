@@ -1,6 +1,9 @@
 import funciones.mis_funciones as mis_funciones
 
 def buscar_por_continente(lista_paises):
+
+    mis_funciones.limpiar_pantalla()
+
     try:
         if not isinstance(lista_paises, list):
             print("Error: se esperaba una lista de países.")
@@ -36,8 +39,10 @@ def buscar_por_continente(lista_paises):
         print(f"Error en la búsqueda por continente: {e}")
         return []
 
-
 def buscar_por_rango_poblacion(lista_paises):
+
+    mis_funciones.limpiar_pantalla()
+
     try:
         if not isinstance(lista_paises, list):
             print("Error: se esperaba una lista de países.")
@@ -74,8 +79,10 @@ def buscar_por_rango_poblacion(lista_paises):
         print(f"Error en la búsqueda por rango de población: {e}")
         return []
 
-
 def buscar_por_rango_superficie(lista_paises):
+
+    mis_funciones.limpiar_pantalla()
+
     try:
         if not isinstance(lista_paises, list):
             print("Error: se esperaba una lista de países.")
@@ -112,8 +119,10 @@ def buscar_por_rango_superficie(lista_paises):
         print(f"Error en la búsqueda por rango de superficie: {e}")
         return []
 
-
 def menu_de_filtros(lista_paises):
+    
+    mis_funciones.limpiar_pantalla()
+    
     try:
         paises_filtrados = lista_paises.copy()  # Trabaja sobre una copia para no modificar la original
 

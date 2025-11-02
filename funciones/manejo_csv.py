@@ -10,6 +10,10 @@ encabezados = (
 
 def agregar_pais(lista_paises, nombre_archivo_csv):
     
+    mis_funciones.limpiar_pantalla()
+    
+    
+    print("-" * mis_funciones.ancho_total())
     nombre_nuevo = input("¿Cómo se llama el nuevo país? \n").strip().lower()
     
     # 1. Verificamos si ya existe
@@ -26,8 +30,10 @@ def agregar_pais(lista_paises, nombre_archivo_csv):
 
     # 2. Pedimos los OTROS datos
     try:
-        poblacion_nueva = mis_funciones.numero_entero((input(f"Población de {nombre_nuevo}? \n")))
-        superficie_nueva = mis_funciones.numero_entero((input(f"Superficie de {nombre_nuevo}? \n")))
+        print("-" * mis_funciones.ancho_total())
+        poblacion_nueva = mis_funciones.numero_entero((f"Población de {nombre_nuevo}? \n"))
+        print("-" * mis_funciones.ancho_total())
+        superficie_nueva = mis_funciones.numero_entero((f"Superficie de {nombre_nuevo}? \n"))
         mis_funciones.menu_continentes()
         opcion = mis_funciones.numero_opcion(6)
         continentes = {
@@ -56,13 +62,18 @@ def agregar_pais(lista_paises, nombre_archivo_csv):
     print(f"¡País '{nombre_nuevo}' agregado con éxito!")
     
     print("Guardando cambios en el archivo...")
+    mis_funciones.time.sleep(2)
     try:
         guardar_datos(nombre_archivo_csv, lista_paises, encabezados)
         print("Archivo actualizado con éxito!")
+        mis_funciones.time.sleep(1)
     except Exception as e:
         print(f"Error al guardar el archivo: {e}")
 
 def editar_pais(lista_paises, encabezados, nombre_archivo_csv):
+
+    mis_funciones.limpiar_pantalla()
+
 
     buscar_pais = input("Qué país buscas editar? ").strip().lower()
 
@@ -82,14 +93,14 @@ def editar_pais(lista_paises, encabezados, nombre_archivo_csv):
         return
 
     print(
-        f"=" * mis_funciones.ANCHO_TOTAL,
+        f"=" * mis_funciones.ancho_total(),
         f"¿Qué necesitas editar de {pais_para_editar['nombre']}?",
-        f"=" * mis_funciones.ANCHO_TOTAL,
+        f"=" * mis_funciones.ancho_total(),
         "1. Población",
         "2. Superficie",
         "3. Continente",
         "4. Cancelar",
-        f"=" * mis_funciones.ANCHO_TOTAL,
+        f"=" * mis_funciones.ancho_total(),
         sep = "\n" # 'sep="\n"' imprime cada elemento en una nueva línea
     )
     opcion = mis_funciones.numero_opcion(4)

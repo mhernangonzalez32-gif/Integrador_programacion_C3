@@ -9,6 +9,9 @@ menu_orden = (
 
 
 def orden_paises(lista_paises):
+    
+    mis_funciones.limpiar_pantalla()
+    
     """
     Permite al usuario ordenar la lista de países por nombre, población o superficie,
     en orden ascendente o descendente, y muestra los resultados formateados.
@@ -30,13 +33,13 @@ def orden_paises(lista_paises):
             print("No hay países para ordenar.")
             return
         
-        print("=" * mis_funciones.ANCHO_TOTAL)
+        print("=" * mis_funciones.ancho_total())
         print(mis_funciones.menu_centro("Ordenar países por:"))
-        print("-" * mis_funciones.ANCHO_TOTAL)
+        print("-" * mis_funciones.ancho_total())
         for i, opcion_texto in enumerate(menu_orden, start=1):
             linea = f"  {i}. {opcion_texto}"
-            print(f"{linea:<{mis_funciones.ANCHO_TOTAL - 6}}  ") 
-        print("=" * mis_funciones.ANCHO_TOTAL)
+            print(f"{linea:<{mis_funciones.ancho_total() - 6}}  ") 
+        print("=" * mis_funciones.ancho_total())
 
         criterio = mis_funciones.numero_entero("Ingrese la opción de cómo desea ordenar: ")
 
@@ -81,9 +84,9 @@ def orden_paises(lista_paises):
             print("No se pudieron mostrar países (lista vacía tras ordenar).")
             return
 
-        print("\n" + "="*mis_funciones.ANCHO_TOTAL)
+        print("\n" + "="*mis_funciones.ancho_total())
         print(mis_funciones.menu_centro(f"🌎 Países ordenados por {clave} ({'descendente' if descendente else 'ascendente'})"))
-        print("="*mis_funciones.ANCHO_TOTAL)
+        print("="*mis_funciones.ancho_total())
 
         mis_funciones.imprimir_resultados(paises_ordenados)
 

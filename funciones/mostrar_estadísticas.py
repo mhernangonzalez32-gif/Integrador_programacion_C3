@@ -1,6 +1,10 @@
 import funciones.mis_funciones as mis_funciones 
 
 def mostrar_estadisticas(lista_paises):
+    
+    mis_funciones.limpiar_pantalla()
+    
+    
     try:
         if not isinstance(lista_paises, list):
             print("❌ Error: se esperaba una lista de países.")
@@ -52,9 +56,9 @@ def mostrar_estadisticas(lista_paises):
         from collections import Counter
         conteo_continentes = Counter(continentes_validos)
 
-        print("=" * mis_funciones.ANCHO_TOTAL)
+        print("=" * mis_funciones.ancho_total())
         print(mis_funciones.menu_centro(("ESTADÍSTICAS GENERALES")))
-        print("=" * mis_funciones.ANCHO_TOTAL)
+        print("=" * mis_funciones.ancho_total())
 
         print(f"🌍 País con mayor población: {pais_mayor_pob['nombre']} ({pais_mayor_pob['poblacion']:,} habitantes)")
         print(f"🌍 País con menor población: {pais_menor_pob['nombre']} ({pais_menor_pob['poblacion']:,} habitantes)")
@@ -66,7 +70,15 @@ def mostrar_estadisticas(lista_paises):
         for continente, cantidad in sorted(conteo_continentes.items()):
             print(f"   • {continente}: {cantidad} país(es)")
 
-        print("=" * mis_funciones.ANCHO_TOTAL)
+        print("=" * mis_funciones.ancho_total())
+        
+        accion = input("Precione Enter para salir")
+
+        # Lógica de navegación
+        if accion == '':
+            print("👋 Saliendo de la paginación...")
+            mis_funciones.time.sleep(1)
+            pass
 
     except KeyboardInterrupt:
         print("\n\nOperación cancelada por el usuario.")
