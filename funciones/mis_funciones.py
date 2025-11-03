@@ -1,16 +1,4 @@
 import csv
-<<<<<<< HEAD
-import os
-ANCHO_TOTAL = 102
-
-def inicializar_archivo():
-    if not os.path.exists('csv\\paises_mundo.csv'):
-        with open('csv\\paises_mundo.csv', 'w', newline='', encoding='utf-8') as archivo:
-            escritor = csv.DictWriter(archivo, fieldnames=["nombre","poblacion","superficie","continente"])
-            escritor.writeheader()
-
-def menu_centro(texto, ancho=ANCHO_TOTAL):
-=======
 import shutil
 import time
 import os
@@ -24,7 +12,6 @@ def ancho_total():
     return ancho
 
 def menu_centro(texto, ancho=ancho_total()):
->>>>>>> b7d4a458f98df2513eb614722256533bb3f5955d
     return f"{texto:^{ancho}}"
 
 def menu_principal():
