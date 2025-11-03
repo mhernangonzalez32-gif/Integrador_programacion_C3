@@ -11,6 +11,7 @@ from funciones import (
 paises = mis_funciones.cargar_datos_desde_csv("csv\\paises_mundo.csv")
 
 while True:
+    mis_funciones.inicializar_archivo()
     mis_funciones.menu_principal()
     opcion = mis_funciones.numero_opcion(7)
     match opcion:
