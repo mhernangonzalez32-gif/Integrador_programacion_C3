@@ -1,4 +1,5 @@
 import csv
+<<<<<<< HEAD
 import os
 ANCHO_TOTAL = 102
 
@@ -9,6 +10,21 @@ def inicializar_archivo():
             escritor.writeheader()
 
 def menu_centro(texto, ancho=ANCHO_TOTAL):
+=======
+import shutil
+import time
+import os
+
+def limpiar_pantalla():
+    if os.name == 'nt':
+        _ = os.system('cls')
+
+def ancho_total():
+    ancho = shutil.get_terminal_size().columns
+    return ancho
+
+def menu_centro(texto, ancho=ancho_total()):
+>>>>>>> b7d4a458f98df2513eb614722256533bb3f5955d
     return f"{texto:^{ancho}}"
 
 def menu_principal():
@@ -22,17 +38,21 @@ def menu_principal():
         "Salir"
     ]
     # Imprime el menú línea por línea con formato
-    print("=" * ANCHO_TOTAL)
+    print("=" * ancho_total())
     print(menu_centro("MENÚ PRINCIPAL"))
-    print("-" * ANCHO_TOTAL)
+    print("-" * ancho_total())
     
     # Itera sobre la lista e imprime cada opción con formato
     for i, opcion_texto in enumerate(opciones, start=1):
         linea = f"  {i}. {opcion_texto}"
-        print(f"{linea:<{ANCHO_TOTAL - 2}}")
-    print("=" * ANCHO_TOTAL)
+        print(f"{linea:<{ancho_total() - 2}}")
+    print("=" * ancho_total())
 
 def menu_filtros():
+    
+    limpiar_pantalla()
+    
+    
     opciones = [
         "Buscar por continente",
         "Buscar por rango de población",
@@ -41,17 +61,21 @@ def menu_filtros():
     ]
     
     # Imprime el menú línea por línea con formato
-    print("=" * ANCHO_TOTAL)
+    print("=" * ancho_total())
     print(menu_centro("¿Qué tipo de filtros deseas usar?"))
-    print("-" * ANCHO_TOTAL)
+    print("-" * ancho_total())
     
     # Itera sobre la lista e imprime cada opción con formato
     for i, opcion_texto in enumerate(opciones, start=1):
         linea = f"  {i}. {opcion_texto}"
-        print(f"{linea:<{ANCHO_TOTAL - 6}}  ") 
-    print("=" * ANCHO_TOTAL)
+        print(f"{linea:<{ancho_total() - 6}}  ") 
+    print("=" * ancho_total())
 
 def menu_continentes():
+    
+    limpiar_pantalla()
+    
+    
     opciones = [
         "América del Sur",
         "América del Norte",
@@ -62,15 +86,15 @@ def menu_continentes():
     ]
     
     # Imprime el menú línea por línea con formato
-    print("=" * ANCHO_TOTAL)
+    print("=" * ancho_total())
     print(menu_centro("Elige algún continente:"))
-    print("-" * ANCHO_TOTAL)
+    print("-" * ancho_total())
     
     # Itera sobre la lista e imprime cada opción con formato
     for i, opcion_texto in enumerate(opciones, start=1):
         linea = f"  {i}. {opcion_texto}"
-        print(f"{linea:<{ANCHO_TOTAL - 6}}  ") 
-    print("=" * ANCHO_TOTAL)
+        print(f"{linea:<{ancho_total() - 6}}  ") 
+    print("=" * ancho_total())
 
 def numero_opcion(rango):
     while True:
@@ -80,9 +104,9 @@ def numero_opcion(rango):
                 numero = int(entrada_usuario)
                 return numero
         except ValueError:
-                print("-" * ANCHO_TOTAL)
+                print("-" * ancho_total())
                 print(menu_centro("Error: El dato ingresado no pertenece a ninguna opción. Inténtalo de nuevo."))
-                print("-" * ANCHO_TOTAL)
+                print("-" * ancho_total())
 
 def numero_entero(texto):
     while True:     
@@ -130,7 +154,7 @@ def si_o_no(validacion, texto):
                 return validacion == False
             else:
                 print("❌ Entrada no válida. Por favor responda con 'sí' o 'no' (o 's'/'n').")
-                print("-" * ANCHO_TOTAL)
+                print("-" * ancho_total())
         except KeyboardInterrupt:
             print("\n\nOperación cancelada por el usuario.")
             return validacion == False  
@@ -159,7 +183,7 @@ def imprimir_resultados(paises_ordenados):
     ANCHO_POB = 15
     ANCHO_SUP = 18
     ANCHO_CONT = 25
-    ANCHO_TOTAL = ANCHO_NUM + ANCHO_NOMBRE + ANCHO_POB + ANCHO_SUP + ANCHO_CONT + (4 * 3)
+    #ANCHO_TOTAL = ANCHO_NUM + ANCHO_NOMBRE + ANCHO_POB + ANCHO_SUP + ANCHO_CONT + (4 * 3)
 
     # 2. Inicialización de variables de paginación (fuera del while)
     pagina = 0
@@ -174,9 +198,11 @@ def imprimir_resultados(paises_ordenados):
         fin = inicio + por_pagina
 
         # Encabezado
+        limpiar_pantalla()
+        
         print(f"\nPágina {pagina+1} de {total_paginas}")
         print(f"\n{'#':>{ANCHO_NUM}} | {'Nombre':<{ANCHO_NOMBRE}} | 🚻 {'Población':>{ANCHO_POB}} | 🗺️ {'Superficie (km²)':>{ANCHO_SUP}} | 🌎 {'Continente':<{ANCHO_CONT}}")
-        print("-" * ANCHO_TOTAL)
+        print("-" * ancho_total())
 
         # Filas de países
         for con, pais in enumerate(paises_ordenados[inicio:fin], start=inicio+1):
@@ -184,9 +210,9 @@ def imprimir_resultados(paises_ordenados):
             poblacion = f"{pais.get('poblacion', 'N/A'):,}"
             superficie = f"{pais.get('superficie', 'N/A'):,}"
             continente = pais.get('continente', 'N/A')
-            print(f"{con:>{ANCHO_NUM}} | {nombre:<{ANCHO_NOMBRE}} | {poblacion:>{ANCHO_POB}} | {superficie:>{ANCHO_SUP}} | {continente:<{ANCHO_CONT}}")
+            print(f"{con:>{ANCHO_NUM}} | {nombre:<{ANCHO_NOMBRE}} |    {poblacion:>{ANCHO_POB}} |   {superficie:>{ANCHO_SUP}} |    {continente:<{ANCHO_CONT}}")
 
-        print("-" * ANCHO_TOTAL)
+        print("-" * ancho_total())
 
         # Opciones de navegación
         print("Opciones: [A]vanzar | [R]etroceder | [S]alir")
@@ -195,6 +221,7 @@ def imprimir_resultados(paises_ordenados):
         # Lógica de navegación
         if accion == 's':
             print("👋 Saliendo de la paginación...")
+            time.sleep(1)
             break
         elif accion == 'a':
             if pagina < total_paginas - 1:

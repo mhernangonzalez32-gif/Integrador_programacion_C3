@@ -1,10 +1,13 @@
 import difflib
 
 def buscar_pais_nombre(lista_paises):
+    
+    mis_funciones.limpiar_pantalla()
+    
     # Pedimos que ingrese el nombre o alguna similitud
-    print("-" * mis_funciones.ANCHO_TOTAL)
+    print("-" * mis_funciones.ancho_total())
     nombre_buscado = input("Que pais esta buscando?\n")
-    print("-" * mis_funciones.ANCHO_TOTAL)
+    print("-" * mis_funciones.ancho_total())
     
     # Normalizar el término de búsqueda del usuario
     termino_normalizado = mis_funciones.normalizar_manual(nombre_buscado)

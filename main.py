@@ -11,7 +11,7 @@ from funciones import (
 paises = mis_funciones.cargar_datos_desde_csv("csv\\paises_mundo.csv")
 
 while True:
-    mis_funciones.inicializar_archivo()
+    mis_funciones.limpiar_pantalla()
     mis_funciones.menu_principal()
     opcion = mis_funciones.numero_opcion(7)
     match opcion:
@@ -29,5 +29,6 @@ while True:
             manejo_csv.editar_pais(paises, manejo_csv.encabezados, "csv\\paises_mundo.csv")
         case 7:
             print("Adiós")
+            break
         case _:
             print (mis_funciones.menu_centro("🤭 Error. Intentelo nuevamente.🤭"))
