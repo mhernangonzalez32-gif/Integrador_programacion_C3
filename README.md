@@ -286,7 +286,8 @@ Formato de archivo de texto plano para datos tabulares. Se utiliza `csv.DictRead
 ## 📞 Contacto
 
 **Desarrolladores:** 
-[Hernan https://github.com/mhernangonzalez32-gif]  
+
+                     [Hernan https://github.com/mhernangonzalez32-gif]  
                      [Elias https://github.com/eEmanuel07] 
 
 **Materia:** Programación 1  
