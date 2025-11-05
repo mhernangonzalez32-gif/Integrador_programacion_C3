@@ -1,4 +1,5 @@
 import difflib
+import funciones.mis_funciones as mis_funciones
 
 def buscar_pais_nombre(lista_paises):
     
