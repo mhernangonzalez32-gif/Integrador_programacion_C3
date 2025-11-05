@@ -239,12 +239,12 @@ Lectura con `csv.DictReader()` y escritura con `csv.DictWriter()`.
 
 ## 👥 Participación de Integrantes
 
-### [Integrante 1 - Nombre]
+### [Integrante 1 - Elias Tello]
 - Desarrollo del módulo de búsqueda y filtros
 - Implementación de funciones auxiliares
 - Diseño de la interfaz de consola
 
-### [Integrante 2 - Nombre]
+### [Integrante 2 - Hernan Gonzalez]
 - Desarrollo del módulo de ordenamiento y estadísticas
 - Manejo de archivos CSV (agregar/editar)
 - Documentación y testing
@@ -285,7 +285,8 @@ Formato de archivo de texto plano para datos tabulares. Se utiliza `csv.DictRead
 
 ## 📞 Contacto
 
-**Desarrolladores:** [Nombres de integrantes]  
+**Desarrolladores:** [Hernan https://github.com/mhernangonzalez32-gif]  
+                     [Elias https://github.com/eEmanuel07] 
 **Materia:** Programación 1  
 **Institución:** Tecnicatura Universitaria en Programación
 
