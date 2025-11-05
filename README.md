@@ -1,21 +1,21 @@
-# 🌍 Gestión de Datos de Países en Python
+#  Gestión de Datos de Países en Python
 
 Sistema de gestión y análisis de información sobre países del mundo, desarrollado en Python. Permite realizar búsquedas, filtrados, ordenamientos y estadísticas sobre un dataset de países con información demográfica y geográfica.
 
-## 📋 Descripción del Proyecto
+##  Descripción del Proyecto
 
 Este proyecto es un Trabajo Práctico Integrador de Programación 1 que implementa una aplicación de consola para gestionar información de países. El sistema permite cargar datos desde un archivo CSV y realizar diversas operaciones como búsquedas, filtros personalizados, ordenamientos y cálculos estadísticos.
 
 ### Características principales:
-- ✅ Búsqueda de países por nombre (coincidencia parcial)
-- ✅ Filtros por continente, población y superficie
-- ✅ Ordenamiento ascendente/descendente por múltiples criterios
-- ✅ Estadísticas: promedios, máximos, mínimos y distribución por continente
-- ✅ Agregar y editar países en el dataset
-- ✅ Paginación de resultados
-- ✅ Interfaz de consola intuitiva y responsiva
+-  Búsqueda de países por nombre (coincidencia parcial)
+-  Filtros por continente, población y superficie
+-  Ordenamiento ascendente/descendente por múltiples criterios
+-  Estadísticas: promedios, máximos, mínimos y distribución por continente
+-  Agregar y editar países en el dataset
+-  Paginación de resultados
+-  Interfaz de consola intuitiva y responsiva
 
-## 🛠️ Tecnologías Utilizadas
+##  Tecnologías Utilizadas
 
 - **Lenguaje:** Python 3.x
 - **Librerías estándar:**
@@ -26,7 +26,7 @@ Este proyecto es un Trabajo Práctico Integrador de Programación 1 que implemen
   - `difflib` - Comparación de cadenas (búsqueda)
   - `collections.Counter` - Conteo de elementos
 
-## 📁 Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 proyecto-paises/
@@ -46,7 +46,7 @@ proyecto-paises/
 └── README.md                        # Este archivo
 ```
 
-## 🚀 Instalación y Uso
+##  Instalación y Uso
 
 ### Requisitos previos
 - Python 3.x instalado en el sistema
@@ -68,7 +68,7 @@ Asegúrate de que el archivo `csv/paises_mundo.csv` esté en la carpeta correcta
 python main.py
 ```
 
-## 📖 Guía de Uso
+##  Guía de Uso
 
 ### Menú Principal
 Al ejecutar el programa, verás 7 opciones:
@@ -89,7 +89,7 @@ Al ejecutar el programa, verás 7 opciones:
 
 ### Ejemplos de Uso
 
-#### 1️⃣ Buscar País por Nombre
+#### 1️. Buscar País por Nombre
 **Entrada:**
 ```
 Que pais esta buscando?
@@ -100,12 +100,12 @@ argentina
 ```
 --- Resultados para 'argentina' (1 encontrados) ---
 
-#    | Nombre          | 🚻 Población    | 🗺️ Superficie (km²) | 🌎 Continente
+#    | Nombre          |    Población    |     Superficie (km²) |  Continente
 ──────────────────────────────────────────────────────────────────────
 1    | Argentina       |   45,773,884    |      2,780,400       | América del Sur
 ```
 
-#### 2️⃣ Filtrar por Continente
+#### 2️. Filtrar por Continente
 **Entrada:**
 ```
 Elige algún continente:
@@ -115,7 +115,7 @@ Elige algún continente:
 **Salida:**
 Muestra todos los países de América del Sur con paginación (10 países por página).
 
-#### 3️⃣ Ordenar Países
+#### 3️. Ordenar Países
 **Entrada:**
 ```
 Ordenar países por:
@@ -127,18 +127,18 @@ Ordenar países por:
 **Salida:**
 Lista de países ordenados de mayor a menor población.
 
-#### 4️⃣ Estadísticas
+#### 4️. Estadísticas
 **Salida automática:**
 ```
 ═════════════════ ESTADÍSTICAS GENERALES ═════════════════
 
-🌐 País con mayor población: India (1,428,627,663 habitantes)
-🌐 País con menor población: Ciudad del Vaticano (825 habitantes)
+ País con mayor población: India (1,428,627,663 habitantes)
+ País con menor población: Ciudad del Vaticano (825 habitantes)
 
-📈 Población promedio: 40,735,756.67 habitantes
-📏 Superficie promedio: 695,959.82 km²
+ Población promedio: 40,735,756.67 habitantes
+ Superficie promedio: 695,959.82 km²
 
-🗺️ Países por continente:
+ Países por continente:
    • África: 54 país(es)
    • América del Norte: 23 país(es)
    • América del Sur: 12 país(es)
@@ -147,7 +147,7 @@ Lista de países ordenados de mayor a menor población.
    • Oceanía: 14 país(es)
 ```
 
-#### 5️⃣ Agregar Nuevo País
+#### 5️. Agregar Nuevo País
 **Entrada:**
 ```
 ¿Cómo se llama el nuevo país?
@@ -169,7 +169,7 @@ Elige algún continente:
 Archivo actualizado con éxito!
 ```
 
-## 🔍 Estructura de Datos
+##  Estructura de Datos
 
 ### Dataset CSV
 Cada país contiene la siguiente información:
@@ -187,11 +187,11 @@ nombre,poblacion,superficie,continente
 Argentina,45773884,2780400,América del Sur
 ```
 
-## 🧩 Funcionalidades Técnicas
+##  Funcionalidades Técnicas
 
 ### Conceptos de Programación Aplicados
 
-#### 📝 Listas
+####  Listas
 Almacenamiento dinámico de países como lista de diccionarios:
 ```python
 paises = [
@@ -200,56 +200,56 @@ paises = [
 ]
 ```
 
-#### 📚 Diccionarios
+####  Diccionarios
 Cada país es representado como un diccionario con claves estandarizadas.
 
-#### ⚙️ Funciones
+####  Funciones
 Modularización total del código con funciones específicas:
 - `cargar_datos_desde_csv()` - Carga de datos
 - `buscar_pais_nombre()` - Búsqueda
 - `imprimir_resultados()` - Visualización con paginación
 
-#### 🔀 Condicionales
+####  Condicionales
 Control de flujo con `if/elif/else` y `match/case` (Python 3.10+).
 
-#### 🔄 Estructuras Repetitivas
+####  Estructuras Repetitivas
 - `while` para menús y validaciones
 - `for` para iteración sobre países
 
-#### 📊 Ordenamientos
+####  Ordenamientos
 Uso de `sorted()` con funciones `lambda` y parámetro `reverse`:
 ```python
 sorted(lista_paises, key=lambda x: x['poblacion'], reverse=True)
 ```
 
-#### 📈 Estadísticas
+####  Estadísticas
 Funciones `max()`, `min()`, `sum()` y `Counter()` para análisis de datos.
 
-#### 📁 Manejo de Archivos CSV
+####  Manejo de Archivos CSV
 Lectura con `csv.DictReader()` y escritura con `csv.DictWriter()`.
 
 ### Validaciones Implementadas
 
-✅ Control de errores en formato CSV  
-✅ Validación de entradas numéricas  
-✅ Mensajes claros de éxito/error  
-✅ Manejo de búsquedas sin resultados  
-✅ Prevención de duplicados al agregar países  
-✅ Normalización de texto para búsquedas (eliminación de tildes)
+ Control de errores en formato CSV  
+ Validación de entradas numéricas  
+ Mensajes claros de éxito/error  
+ Manejo de búsquedas sin resultados  
+ Prevención de duplicados al agregar países  
+ Normalización de texto para búsquedas (eliminación de tildes)
 
-## 👥 Participación de Integrantes
+##  Participación de Integrantes
 
-### [Integrante 1 - Elias Tello]
+### [Elias Tello]
 - Desarrollo del módulo de búsqueda y filtros
 - Implementación de funciones auxiliares
 - Diseño de la interfaz de consola
 
-### [Integrante 2 - Hernan Gonzalez]
+### [Hernan Gonzalez]
 - Desarrollo del módulo de ordenamiento y estadísticas
 - Manejo de archivos CSV (agregar/editar)
 - Documentación y testing
 
-## 📚 Conceptos Teóricos Aplicados
+##  Conceptos Teóricos Aplicados
 
 ### Listas en Python
 Estructura de datos secuencial y mutable que permite almacenar colecciones ordenadas. En este proyecto, se utiliza para mantener el conjunto completo de países.
@@ -266,15 +266,15 @@ Algoritmo de ordenación de Python (`Timsort`) implementado en la función `sort
 ### Archivos CSV
 Formato de archivo de texto plano para datos tabulares. Se utiliza `csv.DictReader` para lectura y `csv.DictWriter` para escritura, facilitando el manejo de datos estructurados.
 
-## 🎯 Criterios de Evaluación Cumplidos
+##  Criterios de Evaluación Cumplidos
 
-- ✅ **Funcionalidad correcta:** Todas las búsquedas, filtros, ordenamientos y estadísticas funcionan correctamente
-- ✅ **Estructuras de datos:** Uso apropiado de listas y diccionarios
-- ✅ **Calidad de código:** Modularización, legibilidad y comentarios
-- ✅ **Documentación:** README completo con ejemplos e instrucciones
-- ✅ **Validaciones:** Manejo robusto de errores y entradas inválidas
+-  **Funcionalidad correcta:** Todas las búsquedas, filtros, ordenamientos y estadísticas funcionan correctamente
+-  **Estructuras de datos:** Uso apropiado de listas y diccionarios
+-  **Calidad de código:** Modularización, legibilidad y comentarios
+-  **Documentación:** README completo con ejemplos e instrucciones
+-  **Validaciones:** Manejo robusto de errores y entradas inválidas
 
-## 🔮 Posibles Mejoras Futuras
+##  Posibles Mejoras Futuras
 
 - [ ] Interfaz gráfica con Tkinter o PyQt
 - [ ] Exportar resultados a Excel o PDF
@@ -283,7 +283,7 @@ Formato de archivo de texto plano para datos tabulares. Se utiliza `csv.DictRead
 - [ ] API REST para consultas remotas
 - [ ] Tests unitarios automatizados
 
-## 📞 Contacto
+##  Contacto
 
 **Desarrolladores:** 
 
@@ -295,7 +295,7 @@ Formato de archivo de texto plano para datos tabulares. Se utiliza `csv.DictRead
 
 ---
 
-⭐ Si este proyecto te resultó útil, no olvides darle una estrella en GitHub!
+ Si este proyecto te resultó útil, no olvides darle una estrella en GitHub!
 
 ## 📄 Licencia
 
