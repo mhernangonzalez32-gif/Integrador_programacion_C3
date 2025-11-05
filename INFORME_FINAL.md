@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="img/encabezado.png" alt="Encabezado del Proyecto Integrador UTN" width="600"/>
+</p>
+
 # INFORME TÉCNICO: SISTEMA DE GESTIÓN DE PAÍSES EN PYTHON
 
 **Trabajo Práctico Integrador - Programación 1**  
