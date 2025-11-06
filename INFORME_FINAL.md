@@ -20,7 +20,7 @@
 7. [Diseño de Interfaz y Experiencia de Usuario](#diseño-ux)
 8. [Persistencia de Datos y Tecnología](#persistencia-datos)
 9. [Conclusiones](#conclusiones)
-10. [Referencias Bibliográficas](#referencias)
+10. [Anexo](#anexo)
 
 ---
 
@@ -1795,81 +1795,9 @@ Este proyecto no es solo un trabajo práctico, sino una demostración de que los
 
 ---
 
-## 10. REFERENCIAS BIBLIOGRÁFICAS <a name="referencias"></a>
-
-### 10.1 Documentación Oficial
-
-1. **Python Software Foundation.** (2024). *Python 3.10 Documentation*. Recuperado de https://docs.python.org/3.10/
-
-2. **Python Software Foundation.** (2024). *csv — CSV File Reading and Writing*. Python Standard Library. Recuperado de https://docs.python.org/3/library/csv.html
-
-3. **Python Software Foundation.** (2024). *collections — Container datatypes*. Python Standard Library. Recuperado de https://docs.python.org/3/library/collections.html
-
-4. **Python Software Foundation.** (2024). *shutil — High-level file operations*. Python Standard Library. Recuperado de https://docs.python.org/3/library/shutil.html
-
-### 10.2 Algoritmos y Estructuras de Datos
-
-5. **Peters, Tim.** (2002). *Timsort*. Python Enhancement Proposals (PEP). Recuperado de https://github.com/python/cpython/blob/main/Objects/listsort.txt
-
-6. **Cormen, T. H., Leiserson, C. E., Rivest, R. L., & Stein, C.** (2022). *Introduction to Algorithms* (4th ed.). MIT Press.
-
-7. **Goodrich, M. T., Tamassia, R., & Goldwasser, M. H.** (2013). *Data Structures and Algorithms in Python*. Wiley.
-
-### 10.3 Ingeniería de Software
-
-8. **Martin, R. C.** (2008). *Clean Code: A Handbook of Agile Software Craftsmanship*. Prentice Hall.
-
-9. **Martin, R. C.** (2017). *Clean Architecture: A Craftsman's Guide to Software Structure and Design*. Prentice Hall.
-
-10. **Hunt, A., & Thomas, D.** (2019). *The Pragmatic Programmer: Your Journey to Mastery* (20th Anniversary Edition). Addison-Wesley Professional.
-
-### 10.4 Python Best Practices
-
-11. **Van Rossum, G., Warsaw, B., & Coghlan, N.** (2001). *PEP 8 – Style Guide for Python Code*. Python Enhancement Proposals. Recuperado de https://peps.python.org/pep-0008/
-
-12. **Ramalho, L.** (2022). *Fluent Python: Clear, Concise, and Effective Programming* (2nd ed.). O'Reilly Media.
-
-13. **Beazley, D., & Jones, B. K.** (2013). *Python Cookbook* (3rd ed.). O'Reilly Media.
-
-### 10.5 Validación y Manejo de Errores
-
-14. **Python Software Foundation.** (2024). *Errors and Exceptions*. Python Tutorial. Recuperado de https://docs.python.org/3/tutorial/errors.html
-
-15. **Hettinger, R.** (2013). *Transforming Code into Beautiful, Idiomatic Python*. PyCon 2013. Recuperado de https://www.youtube.com/watch?v=OSGv2VnC0go
-
-### 10.6 CSV y Persistencia de Datos
-
-16. **RFC 4180.** (2005). *Common Format and MIME Type for Comma-Separated Values (CSV) Files*. Internet Engineering Task Force (IETF). Recuperado de https://datatracker.ietf.org/doc/html/rfc4180
-
-17. **McKinney, W.** (2022). *Python for Data Analysis* (3rd ed.). O'Reilly Media.
-
-### 10.7 User Experience
-
-18. **Norman, D. A.** (2013). *The Design of Everyday Things: Revised and Expanded Edition*. Basic Books.
-
-19. **Krug, S.** (2014). *Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability* (3rd ed.). New Riders.
-
-### 10.8 Control de Versiones
-
-20. **Chacon, S., & Straub, B.** (2014). *Pro Git* (2nd ed.). Apress. Recuperado de https://git-scm.com/book/en/v2
-
-21. **GitHub.** (2024). *GitHub Docs*. Recuperado de https://docs.github.com/
-
-### 10.9 Datasets y Fuentes de Datos
-
-22. **Worldometer.** (2024). *Countries in the world by population (2024)*. Recuperado de https://www.worldometers.info/world-population/population-by-country/
-
-23. **The World Bank.** (2024). *World Development Indicators*. Recuperado de https://databank.worldbank.org/
-
-### 10.10 Material Académico
-
-24. **Universidad Tecnológica Nacional.** (2024). *Programación 1 - Material de Cátedra*. Tecnicatura Universitaria en Programación.
-
-25. **Zelle, J.** (2016). *Python Programming: An Introduction to Computer Science* (3rd ed.). Franklin, Beedle & Associates.
+## 10. ANEXO <a name="anexo"></a>
 
 ---
-
-## ANEXOS
 
 ### ANEXO A: Diagrama de Flujo del Sistema
 
@@ -2105,19 +2033,8 @@ Las fuentes consultadas para conceptos teóricos y mejores prácticas están deb
 **Integrantes:**
 - **Hernán González:** Desarrollo de módulos de búsqueda, filtros, interfaz de usuario, y demostración del sistema.
 - **Elías Tello:** Desarrollo de módulos de ordenamiento, estadísticas, manejo de CSV, y documentación técnica.
-  Mi enfoque estuvo en la estabilidad del backend y el procesamiento algorítmico de los datos.
-  El desarrollo del módulo de manejo de CSV y persistencia consolidó mi entendimiento de la sincronización entre la memoria y el disco,
-  garantizando la integridad de los datos mediante csv.DictWriter y la detección de duplicados.
-  A nivel algorítmico, la implementación del ordenamiento demostró la elección eficiente de Timsort (sorted() con una función key segura) para manejar diferentes tipos de datos numéricos y de texto.
-   El módulo de estadísticas representó un logro técnico al aplicar procesamiento de datos y manejo de excepciones para calcular promedios y, en particular, el uso de collections.
-  Counter para el análisis de distribución por continente, demostrando la capacidad de usar librerías avanzadas de Python para el análisis.
-  Mi trabajo en la documentación técnica fue clave para formalizar la arquitectura modular del proyecto.
-**Fecha de entrega:** [Completar]
-
-**Firma (simbólica):**
-
-_________________________          _________________________
-Hernán González                     Elías [Apellido]
+  
+**Fecha de entrega:** [5/11/2025]
 
 ---
 
@@ -2126,4 +2043,4 @@ Hernán González                     Elías [Apellido]
 *Tecnicatura Universitaria en Programación*  
 *Programación 1 - Comisión 3*  
 *Trabajo Práctico Integrador*  
-*Año 2024-2025*
+*Año 2025*
