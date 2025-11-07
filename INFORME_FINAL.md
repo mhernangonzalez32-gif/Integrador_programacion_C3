@@ -1980,50 +1980,6 @@ manejo_csv.py                140      4           11 (moderada) 20
 TOTAL                        720      25          61            103
 ```
 
-**Cobertura de Validaciones:**
-- Validación de entrada de usuario: 100%
-- Validación de datos CSV: 100%
-- Manejo de excepciones: 95%
-- Mensajes de error claros: 100%
-
-**Métricas de Calidad:**
-- Ratio Comentarios/Código: 14.3%
-- Funciones por módulo: 3.6 (promedio)
-- Líneas por función: 28.8 (promedio)
-- Complejidad ciclomática promedio: 2.44 (baja complejidad)
-
-### ANEXO F: Glosario de Términos
-
-**Términos Técnicos Utilizados:**
-
-- **Artifact:** Componente de software generado durante el desarrollo
-- **Big O:** Notación para expresar complejidad algorítmica
-- **CSV (Comma-Separated Values):** Formato de archivo de texto para datos tabulares
-- **Context Manager:** Objeto Python que gestiona recursos (ej: archivos) con `with`
-- **Dictionary (Dict):** Estructura de datos hash con pares clave-valor
-- **DictReader/DictWriter:** Clases de csv para leer/escribir diccionarios
-- **Encoding:** Sistema de representación de caracteres (ej: UTF-8)
-- **Exception:** Evento que interrumpe el flujo normal del programa
-- **Generator Expression:** Expresión que genera valores bajo demanda
-- **Hash Table:** Estructura de datos para búsqueda en tiempo constante
-- **Immutable:** Objeto que no puede ser modificado después de creación
-- **I/O (Input/Output):** Operaciones de entrada y salida de datos
-- **Lambda:** Función anónima de una línea en Python
-- **List Comprehension:** Sintaxis concisa para crear listas
-- **Modularización:** División de código en módulos independientes
-- **Normalización:** Proceso de estandarizar datos para comparación
-- **PEP (Python Enhancement Proposal):** Documento de diseño de Python
-- **Refactoring:** Mejorar estructura del código sin cambiar funcionalidad
-- **SRP (Single Responsibility Principle):** Principio de responsabilidad única
-- **Slicing:** Técnica para extraer subsecuencias de listas
-- **Timsort:** Algoritmo de ordenamiento híbrido usado en Python
-- **Try-Except:** Estructura para manejo de excepciones
-- **Tuple:** Secuencia inmutable de elementos
-- **UX (User Experience):** Experiencia de usuario
-- **Validación:** Verificación de corrección de datos
-
----
-
 ## DECLARACIÓN DE AUTORÍA
 
 Declaramos que este trabajo es original y ha sido realizado íntegramente por los integrantes del equipo. Todo código, documentación y contenido ha sido desarrollado específicamente para este Trabajo Práctico Integrador de Programación 1.
@@ -2035,6 +1991,10 @@ Las fuentes consultadas para conceptos teóricos y mejores prácticas están deb
 - **Elías Tello:** Desarrollo de módulos de ordenamiento, estadísticas, manejo de CSV, y documentación técnica.
   
 **Fecha de entrega:** [5/11/2025]
+
+**Exposicion en Video**
+
+[https://drive.google.com/file/d/147Un2S2W_G9I4gUYNxvTDViEY2Q5y-uy/view]
 
 ---
 
