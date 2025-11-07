@@ -7,8 +7,9 @@ from funciones import (
     manejo_csv
 )
 
+mis_funciones.inicializar()
 
-paises = mis_funciones.cargar_datos_desde_csv("csv\\paises_mundo.csv")
+paises = mis_funciones.cargar_datos_desde_csv()
 
 while True:
     mis_funciones.limpiar_pantalla()

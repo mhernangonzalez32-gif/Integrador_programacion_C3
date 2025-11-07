@@ -3,6 +3,14 @@ import shutil
 import time
 import os
 
+ubicacion_archivo = "csv\\paises_mundo.csv"
+
+def inicializar():
+    if not os.path.exists(ubicacion_archivo):
+        with open(ubicacion_archivo, "w", newline="", encoding="utf-8") as archivo:
+            escritor = csv.DictWriter(archivo, fieldnames=["nombre","poblacion","superficie","continente"])
+            escritor.writeheader
+
 def limpiar_pantalla():
     if os.name == 'nt':
         _ = os.system('cls')
@@ -62,7 +70,6 @@ def menu_continentes():
     
     limpiar_pantalla()
     
-    
     opciones = [
         "América del Sur",
         "América del Norte",
@@ -105,10 +112,10 @@ def numero_entero(texto):
         except ValueError:
             print("Error: El dato ingresado no es un número. Inténtalo de nuevo.")
 
-def cargar_datos_desde_csv(ruta_archivo):
+def cargar_datos_desde_csv():
     lista_paises = []
     try:
-        with open(ruta_archivo, "r", encoding='utf-8') as archivo:
+        with open(ubicacion_archivo, "r", encoding='utf-8') as archivo:
             lector_csv = csv.DictReader(archivo)
             for fila in lector_csv:
                 try:
@@ -118,7 +125,7 @@ def cargar_datos_desde_csv(ruta_archivo):
                 except (ValueError, KeyError, TypeError):
                     print(f"Advertencia: Se omitió una fila por datos inválidos o faltantes: {fila}")
     except FileNotFoundError:
-        print(f"Error: El archivo no se encontró en la ruta '{ruta_archivo}'")
+        print(f"Error: El archivo no se encontró en la ruta '{ubicacion_archivo}'")
     except Exception as e:
         print(f"Error inesperado al leer el archivo: {e}")
     return lista_paises
