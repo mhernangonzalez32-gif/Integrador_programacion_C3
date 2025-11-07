@@ -294,8 +294,9 @@ Formato de archivo de texto plano para datos tabulares. Se utiliza `csv.DictRead
 **Institución:** Tecnicatura Universitaria en Programación
 
 ---
+##  Exposicion en Video
 
- Si este proyecto te resultó útil, no olvides darle una estrella en GitHub!
+                     [https://drive.google.com/file/d/147Un2S2W_G9I4gUYNxvTDViEY2Q5y-uy/view]  
 
 ## 📄 Licencia
 
